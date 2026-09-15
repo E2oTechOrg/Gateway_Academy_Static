@@ -1,0 +1,155 @@
+<!-- navbar -->
+
+
+<header class="navbar" x-data="{ open:false, courseOpen:false }">
+
+   <a href="contact.html" class="ticker-link">
+
+    <div class="ticker">
+
+        <div class="ticker-wrap">
+
+            <div class="ticker-text copy-1">
+                ⭐ Admissions Open 2026 • TNPSC • TRB Engineering • SSC • RRB JE • CEETA • TANCET • Free Demo Classes • Limited Seats • Register Now!
+            </div>
+
+            <div class="ticker-text copy-2">
+                ⭐ Admissions Open 2026 • TNPSC • TRB Engineering • SSC • RRB JE • CEETA • TANCET • Free Demo Classes • Limited Seats • Register Now!
+            </div>
+
+        </div>
+
+    </div>
+
+</a>
+    <div class="container-header">
+
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <img src="img/gateway logo.png" alt="Gateway Academy">
+        </a>
+
+        <!-- Center Navigation -->
+        <nav class="nav-links" :class="{ 'active': open }">
+
+            <a href="index.html">Home</a>
+
+            <div class="dropdown">
+
+    <button @click="courseOpen=!courseOpen">
+
+        Courses
+
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 7l3 3 3-3"/>
+        </svg>
+
+    </button>
+
+    <div
+        class="dropdown-menu"
+        x-show="courseOpen"
+        @click.away="courseOpen=false"
+        x-transition>
+
+        <a href="gate.html">GATE</a>
+
+        <!-- TNPSC CTSE -->
+        <div class="submenu" x-data="{ ctseOpen:false }">
+
+            <button @click="ctseOpen=!ctseOpen">
+
+                TNPSC CTSE
+
+                <span>›</span>
+
+            </button>
+
+            <div
+                class="submenu-menu"
+                x-show="ctseOpen"
+                x-transition>
+
+                <a href="tnpsc-non-interview.html">
+                    Non Interview Post
+                </a>
+
+                <a href="tnpsc-interview.html">
+                    Interview Post
+                </a>
+
+                <a href="tnpsc-diploma.html">
+                    Diploma Level
+                </a>
+
+                <a href="tnpsc-iti.html">
+                    ITI Level
+                </a>
+
+            </div>
+
+        </div>
+
+        <a href="trb-engineering.html">
+            TRB Engineering / Polytechnic
+        </a>
+
+        <a href="ssc-rrb-je.html">
+            SSC / RRB JE
+        </a>
+
+        <a href="tmaws.html">
+            TMAWS
+        </a>
+
+        <a href="ceeta-tancet.html">
+            CEETA / TANCET
+        </a>
+
+        <a href="technical-exams.html">
+            Other Technical Exams
+        </a>
+
+    </div>
+
+</div>
+
+            <a href="toppers.html">Achievers</a>
+            <a href="events.html">Events</a>
+            <a href="tutuion.html">Tuition</a>
+            <a href="materials.html">Materials & Testbatch</a>
+            <a href="contact.html">Contact</a>
+
+          
+
+        </nav>
+
+        <!-- Desktop Button -->
+        <div class="nav-btn">
+
+            <a href="contact.html" class="btn">
+                Enquiry Now
+            </a>
+
+        </div>
+
+        <!-- Mobile Menu Button -->
+
+       <button class="menu-btn" @click="open=!open">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         fill="none"
+         viewBox="0 0 24 24"
+         stroke="currentColor">
+
+        <path stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+
+    </svg>
+
+</button>
+
+    </div>
+</header>

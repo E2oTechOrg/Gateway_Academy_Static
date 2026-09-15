@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gateway Academy - Academy Events</title>
+	<!-- Tailwind -->
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<!-- Alpine -->
+	<script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+	<!-- AOS -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<!-- Custom style -->
+	<link rel="stylesheet" href="css/skilline.css" />
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+	<!-- Poppins font -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+</head>
+<body class="antialiased">
+	<div id="header-container"></div>
+
+<section id="events" class="py-20 bg-white mt-24">
+
+<div class="max-w-7xl mx-auto px-6">
+
+    <!-- Heading -->
+    <div class="text-center mb-16">
+
+        <span class="inline-block bg-yellow-100 text-yellow-600 px-5 py-2 rounded-full font-semibold uppercase tracking-wider">
+            Academy Events
+        </span>
+
+        <h2 class="text-5xl font-bold mt-5">
+            Our <span class="text-yellow-500">Recent Events</span>
+        </h2>
+
+        <p class="text-gray-500 max-w-3xl mx-auto mt-5 leading-8">
+            Explore seminars, workshops, motivational sessions,
+            mock tests and career guidance programs conducted
+            by Gateway Engineers Academy.
+        </p>
+
+    </div>
+
+
+
+    <!-- Event -->
+    <div class="event-box">
+
+        <div class="event-header">
+
+            <div>
+
+                <span class="event-date">
+                    10 January 2026
+                </span>
+
+                <h3>
+                    Free Career Awareness Program
+                </h3>
+
+                <p class="event-subtitle">
+                    Banking • SSC • Railways • TNPSC
+                </p>
+
+            </div>
+
+            <a href="#" class="event-btn">
+                View Details →
+            </a>
+
+        </div>
+
+        <p class="event-description">
+            A one-day awareness program explaining career opportunities
+            in Government Engineering Departments, Banking, Railways,
+            SSC and TNPSC. Students attended technical sessions,
+            preparation strategies, and doubt-clearing discussions.
+        </p>
+
+        <div class="event-gallery">
+
+            <img src="img/event1.jpg">
+            <img src="img/event1.jpg">
+            <img src="img/event1.jpg">
+            <img src="img/event1.jpg">
+            <img src="img/event1.jpg">
+            <img src="img/event1.jpg">
+            <img src="img/event1.jpg">
+            <img src="img/event1.jpg">
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Event -->
+    <div class="event-box">
+
+        <div class="event-header">
+
+            <div>
+
+                <span class="event-date blue">
+                    19 December 2025
+                </span>
+
+                <h3>
+                    Weekly Revision Test
+                </h3>
+
+                <p class="event-subtitle">
+                    Banking | SSC | Railway Exams
+                </p>
+
+            </div>
+
+            <a href="#" class="event-btn">
+                View Details →
+            </a>
+
+        </div>
+
+        <p class="event-description">
+            Weekly revision tests with detailed discussion,
+            answer explanations and performance analysis
+            for all students.
+        </p>
+
+        <div class="event-gallery">
+
+            <img src="img/event2.jpg">
+            <img src="img/event2.jpg">
+            <img src="img/event2.jpg">
+            <img src="img/event2.jpg">
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Event -->
+    <div class="event-box">
+
+        <div class="event-header">
+
+            <div>
+
+                <span class="event-date green">
+                    07 December 2025
+                </span>
+
+                <h3>
+                    Free Orientation Program
+                </h3>
+
+                <p class="event-subtitle">
+                    Engineering Competitive Exams
+                </p>
+
+            </div>
+
+            <a href="#" class="event-btn">
+                View Details →
+            </a>
+
+        </div>
+
+        <p class="event-description">
+            Orientation session introducing students to
+            TNEB, TRB, TNPSC and Polytechnic Lecturer
+            examinations with complete roadmap.
+        </p>
+
+        <div class="event-gallery">
+
+            <img src="img/event3.jpg">
+            <img src="img/event3.jpg">
+            <img src="img/event3.jpg">
+            <img src="img/event3.jpg">
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<div id="footer-container"></div>
+
+
+	<!-- AOS init -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+    	AOS.init();
+    </script>
+	<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    let currentSlide = 0;
+
+    const slider = document.getElementById("slider");
+    const dots = document.querySelectorAll(".dot");
+
+    if (!slider) {
+        console.log("Slider not found");
+        return;
+
+
+    }
+
+    const totalSlides = slider.children.length;
+
+    function updateSlider() {
+
+        slider.style.transform =
+            `translateX(-${currentSlide * 100}%)`;
+
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.remove("bg-gray-400");
+                dot.classList.add("bg-white");
+            } else {
+                dot.classList.remove("bg-white");
+                dot.classList.add("bg-gray-400");
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            currentSlide = index;
+            updateSlider();
+        });
+    });
+
+    updateSlider();
+
+    setInterval(nextSlide, 3000);
+});
+</script>
+ <script src="js/script.js"></script>
+
+</body>
+</html>
