@@ -6100,6 +6100,8 @@ border-color .4s ease;
 
 }
 
+
+
 /*====================================
 TABLET
 ====================================*/
@@ -7287,7 +7289,7 @@ QUOTE
 RESPONSIVE
 ==============================*/
 
-@media(max-width:1200px){
+/* @media(max-width:1200px){
 
 .tneb-wrapper{
 
@@ -7473,7 +7475,182 @@ padding:20px;
 
 }
 
+} */
+
+/* =========================================================
+   mobile-fix.css  -  Gateway Engineers Academy
+   Sections: Learning Options (gea-*) + TNEB Strategy (tneb-*)
+   Load AFTER css/skilline.css
+   ========================================================= */
+
+html, body { overflow-x: hidden; max-width: 100%; }
+img, video, iframe { max-width: 100%; }
+
+/* ---------- Root cause: container behaving like a flex row ---------- */
+@media (max-width: 1100px) {
+
+    .gea-learning-section,
+    .tneb-strategy-section {
+        overflow: hidden;
+    }
+
+    .gea-learning-container,
+    .tneb-strategy-section > .container {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        box-sizing: border-box;
+    }
+
+    /* Learning section */
+    .gea-learning-header { width: 100% !important; max-width: 100% !important; }
+
+    .gea-learning-wrapper {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 32px !important;
+        width: 100% !important;
+    }
+
+    .gea-learning-wrapper > * { min-width: 0 !important; }
+
+    .gea-learning-divider { display: none !important; }
+
+    .gea-online-card,
+    .gea-offline-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        transform: none !important;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+    }
+
+    .gea-learning-cta {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 40px !important;
+        width: 100% !important;
+    }
+
+    .gea-learning-cta > *,
+    .gea-cta-left,
+    .gea-cta-right { min-width: 0 !important; width: 100% !important; }
+
+    .gea-call-card { width: 100% !important; max-width: 100% !important; box-sizing: border-box; }
+
+    .gea-benefits { grid-template-columns: 1fr 1fr !important; }
+
+    .gea-banner-content {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    /* TNEB section */
+    .tneb-header { width: 100% !important; max-width: 100% !important; }
+
+    .tneb-wrapper {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 32px !important;
+        width: 100% !important;
+    }
+
+    .tneb-content,
+    .tneb-video { width: 100% !important; max-width: 100% !important; min-width: 0 !important; }
+
+    .tneb-video .video-card iframe { width: 100% !important; height: 240px !important; }
 }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+
+    .gea-learning-section,
+    .tneb-strategy-section { padding: 60px 0 !important; }
+
+    .gea-learning-title { font-size: 32px !important; }
+    .gea-learning-subtitle { font-size: 15px !important; line-height: 1.8 !important; }
+
+    .gea-online-card,
+    .gea-offline-card { padding: 24px 18px !important; border-radius: 24px !important; }
+
+    .gea-online-title,
+    .gea-offline-title { font-size: 25px !important; }
+
+    .gea-online-description,
+    .gea-offline-description { font-size: 15px !important; }
+
+    .gea-online-icon,
+    .gea-offline-icon { width: 70px !important; height: 70px !important; }
+    .gea-online-icon i,
+    .gea-offline-icon i { font-size: 30px !important; }
+
+    .gea-online-features,
+    .gea-offline-features { grid-template-columns: minmax(0, 1fr) !important; }
+
+    .gea-benefits { grid-template-columns: minmax(0, 1fr) !important; }
+    .gea-benefit { padding: 14px !important; }
+
+    .gea-cta-left h2 { font-size: 30px !important; }
+    .gea-call-card { padding: 28px 20px !important; }
+    .gea-call-card h3 { font-size: 26px !important; }
+
+    .gea-banner-content { padding: 30px 20px !important; }
+    .gea-banner-content h2 { font-size: 24px !important; }
+    .gea-banner-content p { font-size: 14px !important; }
+    .gea-banner-btn { width: 100%; justify-content: center; box-sizing: border-box; }
+
+    /* TNEB */
+    .tneb-header h2 { font-size: 28px !important; line-height: 1.35 !important; }
+    .tneb-header p { font-size: 15px !important; line-height: 1.8 !important; }
+    .tneb-badge { font-size: 13px !important; padding: 8px 14px !important; }
+
+    .strategy-card {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 14px !important;
+        padding: 18px 16px !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    .strategy-card > div:last-child { min-width: 0; }
+    .strategy-number { flex: 0 0 44px !important; width: 44px !important; height: 44px !important; font-size: 16px !important; }
+    .strategy-card h3 { font-size: 17px !important; }
+    .strategy-card p { font-size: 14px !important; line-height: 1.7 !important; }
+
+    .tneb-video .video-card iframe { height: 210px !important; }
+}
+
+/* ---------- Small mobile ---------- */
+@media (max-width: 480px) {
+
+    .gea-learning-title { font-size: 28px !important; }
+
+    .gea-online-item,
+    .gea-offline-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .gea-check,
+    .gea-offline-check { margin-bottom: 10px; }
+
+    .gea-platforms,
+    .gea-classroom-tags { flex-direction: column !important; }
+
+    .gea-platforms span,
+    .gea-classroom-tags span { width: 100%; justify-content: center; box-sizing: border-box; }
+
+    .gea-online-btn,
+    .gea-offline-btn { width: 100%; justify-content: center; box-sizing: border-box; }
+
+    .gea-contact-box a { font-size: 15px; height: 54px; }
+
+    .tneb-video .video-card iframe { height: 190px !important; }
+}
+
 /*====================================
 PDF CARD
 ====================================*/
