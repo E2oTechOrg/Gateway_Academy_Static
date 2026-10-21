@@ -224,43 +224,34 @@ Office Hours
 
 <div class="bg-white rounded-3xl shadow-xl p-8">
 
-<form class="space-y-5">
+<form id="whatsappForm" class="space-y-5">
 
-<input type="text" placeholder="Full Name"
-class="w-full border rounded-xl p-4">
+    <input type="text" id="wa-name" placeholder="Full Name" required
+        class="w-full border rounded-xl p-4">
 
-<input type="text" placeholder="Mobile Number"
-class="w-full border rounded-xl p-4">
+    <input type="tel" id="wa-mobile" placeholder="Mobile Number" required
+        pattern="[0-9+\s\-]{10,15}"
+        class="w-full border rounded-xl p-4">
 
-<input type="email" placeholder="Email Address"
-class="w-full border rounded-xl p-4">
+    <input type="email" id="wa-email" placeholder="Email Address"
+        class="w-full border rounded-xl p-4">
 
-<select class="w-full border rounded-xl p-4">
+    <select id="wa-course" required class="w-full border rounded-xl p-4">
+        <option value="">Select Course</option>
+        <option>TNPSC</option>
+        <option>TNEB</option>
+        <option>TRB</option>
+        <option>TET</option>
+        <option>Polytechnic Lecturer</option>
+    </select>
 
-<option>Select Course</option>
+    <textarea id="wa-message" rows="5" placeholder="Message"
+        class="w-full border rounded-xl p-4"></textarea>
 
-<option>TNPSC</option>
-
-<option>TNEB</option>
-
-<option>TRB</option>
-
-<option>TET</option>
-
-<option>Polytechnic Lecturer</option>
-
-</select>
-
-<textarea rows="5"
-placeholder="Message"
-class="w-full border rounded-xl p-4"></textarea>
-
-<button
-class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-4 rounded-xl font-semibold">
-
-Send Enquiry
-
-</button>
+    <button type="submit"
+        class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-4 rounded-xl font-semibold">
+        Send Enquiry
+    </button>
 
 </form>
 
@@ -455,4 +446,36 @@ document.addEventListener("DOMContentLoaded", function () {
  <script src="js/script.js"></script>
 
 </body>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("whatsappForm");
+    if (!form) return;
+
+    const WHATSAPP_NUMBER = "919994715354";
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("wa-name").value.trim();
+        const mobile = document.getElementById("wa-mobile").value.trim();
+        const email = document.getElementById("wa-email").value.trim();
+        const course = document.getElementById("wa-course").value;
+        const message = document.getElementById("wa-message").value.trim();
+
+        const text =
+`*New Enquiry - Gateway Engineers Academy*
+
+*Name:* ${name}
+*Mobile:* ${mobile}
+*Email:* ${email || "-"}
+*Course:* ${course}
+*Message:* ${message || "-"}`;
+
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+        window.open(url, "_blank");
+        form.reset();
+    });
+});
+</script>
 </html>
