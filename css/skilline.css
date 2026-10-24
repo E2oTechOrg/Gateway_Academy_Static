@@ -7486,6 +7486,31 @@ padding:20px;
 html, body { overflow-x: hidden; max-width: 100%; }
 img, video, iframe { max-width: 100%; }
 
+/* #shortSlider {
+    --short-h: 520px;            
+}
+
+#shortSlider .short-card {
+    flex: 0 0 calc((100% - 96px) / 4);   
+    min-width: 0;
+}
+
+#shortSlider .short-card iframe {
+    display: block;
+    width: 100%;
+    height: var(--short-h);
+    border: 0;
+} */
+/* Instagram cards: show only header + video, hide likes/comments/caption area */
+#shortSlider .short-card iframe[src*="instagram.com"] {
+    height: auto;            /* override the fixed height */
+    aspect-ratio: 100 / 143; /* header + 4:5 video, cuts off everything below */
+    width: 100%;
+    display: block;
+    border: 0;
+    overflow: hidden;
+}
+
 /* ---------- Root cause: container behaving like a flex row ---------- */
 @media (max-width: 1100px) {
 
